@@ -1,3 +1,2 @@
 # EsquemaBasicoOpenTK
-Menú para las traslaciones C#
-Menú de traslaciones sobre objetos escenarios y caras
+Menú para las traslaciones C# :traslaciones sobre objetos escenarios y caras
