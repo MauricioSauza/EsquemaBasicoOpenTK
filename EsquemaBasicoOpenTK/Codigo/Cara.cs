@@ -62,7 +62,8 @@ namespace HelloCara
             {
                 Vector vertex = vertice.Value * matriz1 * matriz2;
                 vertex += Centro + movement;
-                GL.Vertex3(vertice.Value.X + Centro.X, vertice.Value.Y + Centro.Y, vertice.Value.Z + Centro.Z);
+                //GL.Vertex3(vertice.Value.X + Centro.X, vertice.Value.Y + Centro.Y, vertice.Value.Z + Centro.Z);
+                GL.Vertex3(vertex.X, vertex.Y, vertex.Z);
             }
             GL.End();
         }
@@ -100,17 +101,21 @@ namespace HelloCara
 
         public void traslacion(float x, float y, float z)
         {
-            movement += new Vector(x, y, z);
+            movement = new Vector(x, y ,z);
+            //movement += new Vector(x, y, z);
             //GL.Translate(x, y, z);
+            foreach(var vertex in ListaDeVertices)
+            {
+                vertex.Value.setVector(vertex.Value + movement);
+            }
         }
 
         public void escalar(float x, float y, float z)
         {
             Matrix3 matriz = Matrix3.CreateScale(x, y, z);
-            foreach(var vertice in ListaDeVertices)
+            foreach (var vertice in ListaDeVertices)
             {
                 vertice.Value.setVector(vertice.Value * matriz);
-                //GL.Scale(x, y, z);
             }
         }
 

@@ -82,7 +82,8 @@ namespace HelloEscenario
         {
             foreach(var obj in ListaDeObjetos)
             {
-                obj.Value.escalar(x, y, z);
+                Objeto obj1 = obj.Value;
+                obj1.escalar(x, y, z);
             }
         }
 

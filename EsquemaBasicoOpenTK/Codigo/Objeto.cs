@@ -73,7 +73,8 @@ namespace HelloEscenario
         public void escalar(float x, float y, float z)
         {
             foreach (var cara in this.ListaDeCaras) {
-                cara.Value.escalar(x, y, z);
+                Cara cara1 = cara.Value;
+                cara1.escalar(x, y, z);
             }
         }
 

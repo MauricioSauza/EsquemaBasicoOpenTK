@@ -192,5 +192,111 @@ namespace EsquemaBasicoOpenTK
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            switch (comboBox2.Text)
+            {
+                case "Escenario1":
+                    switch (comboBox1.Text)
+                    {
+                        case "Escenario":
+                            game.escenario.traslacion(x, y, z);
+                            break;
+                        case "Objeto":
+                            int objeto = int.Parse(textBox4.Text);
+                            if (game.escenario.ListaDeObjetos.ContainsKey(objeto))
+                            {
+                                game.escenario.getObjeto(objeto).traslacion(x, y, z);
+                            }
+                            else
+                            {
+                                MessageBox.Show("El objeto no existe");
+                            }
+                            break;
+                        case "Cara":
+                            int cara = int.Parse(textBox5.Text);
+                            objeto = int.Parse(textBox4.Text);
+                            Objeto temp;
+
+                            if (game.escenario.ListaDeObjetos.ContainsKey(objeto))
+                            {
+                                temp = game.escenario.getObjeto(objeto);
+                                if (temp.ListaDeCaras.ContainsKey(cara))
+                                {
+                                    temp.getCara(cara).traslacion(x, y, z);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("La cara no existe");
+                                }
+
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("La cara no existe");
+                            }
+
+                            break;
+                    }
+                    break;
+                case "Escenario2":
+                    switch (comboBox1.Text)
+                    {
+                        case "Escenario":
+                            game.escenario1.traslacion(x, y, z);
+                            break;
+                        case "Objeto":
+                            int objeto = int.Parse(textBox4.Text);
+                            if (game.escenario1.ListaDeObjetos.ContainsKey(objeto))
+                            {
+                                game.escenario1.getObjeto(objeto).traslacion(x, y, z);
+                            }
+                            else
+                            {
+                                MessageBox.Show("El objeto no existe");
+                            }
+                            break;
+                        case "Cara":
+                            int cara = int.Parse(textBox5.Text);
+                            objeto = int.Parse(textBox4.Text);
+                            Objeto temp;
+                            if (game.escenario1.ListaDeObjetos.ContainsKey(objeto))
+                            {
+                                temp = game.escenario1.getObjeto(objeto);
+                                if (temp.ListaDeCaras.ContainsKey(cara))
+                                {
+                                    temp.getCara(cara).traslacion(x, y, z);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("La cara no existe");
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show("La cara no existe");
+                            }
+                            break;
+
+                    }
+                    break;
+                case "Ambos":
+                    switch (comboBox1.Text)
+                    {
+                        case "Escenario":
+                            game.escenario.traslacion(x, y, z);
+                            game.escenario1.traslacion(x, y, z);
+                            break;
+                    }
+                    break;
+            }
+
+            x = float.Parse(textBox1.Text);
+            y = float.Parse(textBox2.Text);
+            z = float.Parse(textBox3.Text);
+        }
     }
 }
