@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
-using Escenario;
+//using Escenario;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 
-namespace HelloCara
+namespace EsquemaBasicoOpenTK
 {
     class Cara
     {
@@ -60,10 +60,10 @@ namespace HelloCara
 
             foreach (var vertice in this.ListaDeVertices)
             {
-                Vector vertex = vertice.Value * matriz1 * matriz2;
-                vertex += Centro + movement;
-                //GL.Vertex3(vertice.Value.X + Centro.X, vertice.Value.Y + Centro.Y, vertice.Value.Z + Centro.Z);
-                GL.Vertex3(vertex.X, vertex.Y, vertex.Z);
+                //Vector vertex = vertice.Value * matriz1 * matriz2;
+                //vertex += Centro + movement;
+                //GL.Vertex3(vertex.X, vertex.Y, vertex.Z);
+                GL.Vertex3(vertice.Value.X + Centro.X, vertice.Value.Y + Centro.Y, vertice.Value.Z + Centro.Z);
             }
             GL.End();
         }
@@ -73,7 +73,22 @@ namespace HelloCara
             angX = MathHelper.DegreesToRadians(angX);
             angY = MathHelper.DegreesToRadians(angY);
             angZ = MathHelper.DegreesToRadians(angZ);
-            foreach(var vertice in this.ListaDeVertices)
+            //matriz1 *= Matrix3.CreateRotationX(angX) * Matrix3.CreateRotationY(angY) * Matrix3.CreateRotationZ(angZ);
+            foreach (var vertice in this.ListaDeVertices)
+            {
+                vertice.Value.setVector(rotationX(vertice.Value, angX));
+                vertice.Value.setVector(rotationY(vertice.Value, angY));
+                vertice.Value.setVector(rotationZ(vertice.Value, angZ));
+            }
+        }
+
+        public void rotarCara(float angX, float angY, float angZ)
+        {
+            Vector origen = new Vector(0, 0, 0);
+            angX = MathHelper.DegreesToRadians(angX);
+            angY = MathHelper.DegreesToRadians(angY);
+            angZ = MathHelper.DegreesToRadians(angZ);
+            foreach (var vertice in this.ListaDeVertices)
             {
                 vertice.Value.setVector(rotationX(vertice.Value, angX));
                 vertice.Value.setVector(rotationY(vertice.Value, angY));
@@ -102,8 +117,6 @@ namespace HelloCara
         public void traslacion(float x, float y, float z)
         {
             movement = new Vector(x, y ,z);
-            //movement += new Vector(x, y, z);
-            //GL.Translate(x, y, z);
             foreach(var vertex in ListaDeVertices)
             {
                 vertex.Value.setVector(vertex.Value + movement);

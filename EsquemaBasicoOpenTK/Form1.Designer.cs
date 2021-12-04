@@ -183,7 +183,7 @@ namespace EsquemaBasicoOpenTK
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 18;
-            this.textBox4.Text = "0";
+            this.textBox4.Text = "1";
             // 
             // label6
             // 
@@ -200,7 +200,7 @@ namespace EsquemaBasicoOpenTK
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
             this.textBox5.TabIndex = 20;
-            this.textBox5.Text = "0";
+            this.textBox5.Text = "1";
             // 
             // Form1
             // 

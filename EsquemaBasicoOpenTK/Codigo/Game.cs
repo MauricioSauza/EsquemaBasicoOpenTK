@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
-using Escenario;
-using HelloCara;
+//using Escenario;
+//using HelloCara;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 
-namespace HelloEscenario
+namespace EsquemaBasicoOpenTK
 {
     class Game : GameWindow
     {
@@ -31,7 +31,7 @@ namespace HelloEscenario
 
             GL.Ortho(-300, 300, -300, 300, -300, 300);
 
-            //Piramide2
+            ////Piramide2
             //Dictionary<int, Vector> vertices = new Dictionary<int, Vector>();
             //vertices.Add(01, new Vector(-50f, 0f, 0f));
             //vertices.Add(02, new Vector(0f, 100f, 0f));
@@ -58,7 +58,7 @@ namespace HelloEscenario
 
 
 
-            //CUBO
+            ////CUBO
             //Dictionary<int, Vector> vertices5 = new Dictionary<int, Vector>();
             //vertices5.Add(01, new Vector(-50f, 50f, -50f));
             //vertices5.Add(02, new Vector(50f, 50f, -50f));
@@ -100,7 +100,7 @@ namespace HelloEscenario
             //Piramide2.Add(1, new Cara(vertices2, Color.FloralWhite, new Vector(0f, 0f, 0f)));
             //Piramide2.Add(2, new Cara(vertices3, Color.LightSeaGreen, new Vector(0f, 0f, 0f)));
             //Piramide2.Add(3, new Cara(vertices4, Color.Blue, new Vector(0f, 0f, 0f)));
-            //Objeto test3 = new Objeto(Piramide2, new Vector(0, 0, 0));
+            //Objeto test3 = new Objeto(Piramide2, new Vector(-100, -120, 0));
 
             //Dictionary<int, Cara> Piramide = new Dictionary<int, Cara>();
             //Piramide.Add(0, new Cara(vertices5, Color.DarkGreen, new Vector(0f, 0f, 0f)));
@@ -116,7 +116,7 @@ namespace HelloEscenario
             //cubo.Add(1, new Cara(vertices2, Color.DarkBlue, new Vector(0f, 0f, 0f)));
             //cubo.Add(2, new Cara(vertices3, Color.OrangeRed, new Vector(0f, 0f, 0f)));
             //cubo.Add(3, new Cara(vertices4, Color.BlueViolet, new Vector(0f, 0f, 0f)));
-            //Objeto test2 = new Objeto(cubo, new Vector(0, 50, 0));
+            //Objeto test2 = new Objeto(cubo, new Vector(100, 80, 0));
 
 
             //JLoader.save("../../Objetos/objeto.json", test1);
@@ -124,19 +124,19 @@ namespace HelloEscenario
             //JLoader.save("../../Objetos/objeto2.json", test3);
 
 
-            Objeto test11 = JLoader.load("../../Objetos/objeto.json");
-            Objeto test22 = JLoader.load("../../Objetos/objeto1.json");
-            
-            listaObj.Add(1, test11);
-            listaObj.Add(2, test22);
-            escenario = new Escenario(listaObj, new Vector(220, 120, 120));
-            
-           
-            Objeto test33 = JLoader.load("../../Objetos/objeto2.json");
-            listaObj1.Add(1, test33);
-            //-220, -120, -120
-            escenario1 = new Escenario(listaObj1, new Vector(-220, -120, -120));
-            //escenario1.escalar(3, 2, 1);
+            //Objeto test11 = JLoader.load("../../Objetos/objeto.json");
+            //Objeto test22 = JLoader.load("../../Objetos/objeto1.json");
+
+            //listaObj.Add(1, test11);
+            //listaObj.Add(2, test22);
+            //escenario = new Escenario(listaObj, new Vector(100, 80, 100));
+
+
+            //Objeto test33 = JLoader.load("../../Objetos/objeto2.json");
+            //listaObj1.Add(1, test33);
+            ////-220, -120, -120
+            //escenario1 = new Escenario(listaObj1, new Vector(-220, -120, -120));
+            ////escenario1.escalar(3, 2, 1);
 
 
             base.OnLoad(e);

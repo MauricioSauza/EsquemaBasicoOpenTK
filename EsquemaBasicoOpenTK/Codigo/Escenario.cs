@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Escenario;
+//using Escenario;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 
-namespace HelloEscenario
+namespace EsquemaBasicoOpenTK
 {
     class Escenario
     {
@@ -17,22 +17,34 @@ namespace HelloEscenario
         {
             this.ListaDeObjetos = listaDeObjetos;
             this.centro = centro;
-            foreach(var obj in this.ListaDeObjetos)
+            foreach (var obj in this.ListaDeObjetos)
             {
                 Vector vertex = new Vector(obj.Value.Centro.X + this.centro.X, obj.Value.Centro.Y + this.centro.Y, obj.Value.Centro.Z + this.centro.Z);
-                obj.Value.Centro = vertex;
-                foreach(var cara in obj.Value.ListaDeCaras)
+                Vector center = obj.Value.Centro + centro;
+                obj.Value.Centro = center;
+                foreach (var cara in obj.Value.ListaDeCaras)
                 {
-                    Vector faceVertex = new Vector(cara.Value.Centro.X + vertex.X, cara.Value.Centro.Y + vertex.Y, cara.Value.Centro.Z + vertex.Z);
-                    cara.Value.Centro = vertex;
+                    Vector faceVertex = new Vector(cara.Value.Centro.X + center.X, cara.Value.Centro.Y + center.Y, cara.Value.Centro.Z + center.Z);
+                    cara.Value.Centro = center;
                 }
             }
+            //foreach (var obj in listaDeObjetos)
+            //{
+            //    Vector newCenter = obj.Value.Centro + centro;
+            //    obj.Value.Centro = newCenter;
+            //}
+        }
+
+        public Escenario(Vector centro)
+        {
+            this.centro = centro;
+            ListaDeObjetos = new Dictionary<int, Objeto>();
         }
 
         public void setCentro(Vector centro)
         {
             this.centro = centro;
-            foreach(var obj in this.ListaDeObjetos)
+            foreach (var obj in this.ListaDeObjetos)
             {
                 Vector exCentro = obj.Value.getCentro();
                 obj.Value.setCentro(centro + exCentro);
@@ -91,6 +103,7 @@ namespace HelloEscenario
         {
             foreach (var objeto in this.ListaDeObjetos)
             {
+                //objeto.Value.setCentro = centro;
                 objeto.Value.Dibujar();
             }
         }

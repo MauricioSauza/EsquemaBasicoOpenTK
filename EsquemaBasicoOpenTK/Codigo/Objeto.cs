@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
-using Escenario;
-using HelloCara;
+//using Escenario;
+//using HelloCara;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 
-namespace HelloEscenario
+namespace EsquemaBasicoOpenTK
 {
     class Objeto
     {
@@ -20,6 +20,11 @@ namespace HelloEscenario
             this.ListaDeCaras = listaDeCaras;
             this.Centro = centro;
             //setCentro(centro);
+            foreach(var cara in listaDeCaras)
+            {
+                Vector origen = new Vector(centro.X + cara.Value.Centro.X, centro.Y + cara.Value.Centro.Y, centro.Z + cara.Value.Centro.Z);
+                cara.Value.Centro = origen;
+            }
             
         }
 
@@ -66,7 +71,6 @@ namespace HelloEscenario
             {
                 Cara cara1 = cara.Value;
                 cara1.traslacion(x, y, z);
-                //cara.Value.traslacion(x, y, z);
             }
         }
 

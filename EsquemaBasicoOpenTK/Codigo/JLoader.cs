@@ -5,7 +5,7 @@ using System.IO;
 using Newtonsoft.Json;
 using HelloEscenario;
 
-namespace Escenario
+namespace EsquemaBasicoOpenTK
 {
     class JLoader
     {
