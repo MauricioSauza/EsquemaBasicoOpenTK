@@ -60,9 +60,6 @@ namespace EsquemaBasicoOpenTK
 
             foreach (var vertice in this.ListaDeVertices)
             {
-                //Vector vertex = vertice.Value * matriz1 * matriz2;
-                //vertex += Centro + movement;
-                //GL.Vertex3(vertex.X, vertex.Y, vertex.Z);
                 GL.Vertex3(vertice.Value.X + Centro.X, vertice.Value.Y + Centro.Y, vertice.Value.Z + Centro.Z);
             }
             GL.End();
@@ -73,7 +70,6 @@ namespace EsquemaBasicoOpenTK
             angX = MathHelper.DegreesToRadians(angX);
             angY = MathHelper.DegreesToRadians(angY);
             angZ = MathHelper.DegreesToRadians(angZ);
-            //matriz1 *= Matrix3.CreateRotationX(angX) * Matrix3.CreateRotationY(angY) * Matrix3.CreateRotationZ(angZ);
             foreach (var vertice in this.ListaDeVertices)
             {
                 vertice.Value.setVector(rotationX(vertice.Value, angX));

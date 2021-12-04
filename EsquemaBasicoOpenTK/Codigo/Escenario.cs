@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-//using Escenario;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
@@ -28,11 +27,6 @@ namespace EsquemaBasicoOpenTK
                     cara.Value.Centro = center;
                 }
             }
-            //foreach (var obj in listaDeObjetos)
-            //{
-            //    Vector newCenter = obj.Value.Centro + centro;
-            //    obj.Value.Centro = newCenter;
-            //}
         }
 
         public Escenario(Vector centro)
@@ -86,7 +80,6 @@ namespace EsquemaBasicoOpenTK
             {
                 Objeto obj1 = obj.Value;
                 obj1.traslacion(x, y, z);
-                //obj.Value.traslacion(x, y, z);
             }
         }
 
@@ -103,7 +96,6 @@ namespace EsquemaBasicoOpenTK
         {
             foreach (var objeto in this.ListaDeObjetos)
             {
-                //objeto.Value.setCentro = centro;
                 objeto.Value.Dibujar();
             }
         }

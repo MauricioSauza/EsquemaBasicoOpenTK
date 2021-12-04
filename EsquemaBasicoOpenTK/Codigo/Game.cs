@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
-//using Escenario;
-//using HelloCara;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
@@ -144,9 +142,6 @@ namespace EsquemaBasicoOpenTK
 
         protected override void OnUpdateFrame(FrameEventArgs e)
         {
-            //GL.Rotate(1.0f, 0.0f, 0.1f, 0.0f);
-            //escenario.Dibujar();
-            
             base.OnUpdateFrame(e);
         }
 
@@ -155,22 +150,8 @@ namespace EsquemaBasicoOpenTK
             GL.Enable(EnableCap.DepthTest);
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
             GL.MatrixMode(MatrixMode.Modelview);
-            //GL.LoadIdentity();
-
-            //GL.Rotate(320, 1, 1, 0);
-
-            //escenario.getObjeto(1).rotar(0, 3, 0);
-            //escenario.getObjeto(2).rotar(0, 9, 0);
-            //escenario.rotar(0, 3, 0);
             escenario.Dibujar();
-            //escenario1.rotar(0, 12, 0);
-            //escenario1.getObjeto(1).rotar(0, 2, 0);
-            //escenario1.getObjeto(1).traslacion(0, 1, 0);
-            //escenario1.traslacion(1, 1, 1);
-            
             escenario1.Dibujar();
-
-
             SwapBuffers();
             base.OnRenderFrame(e);
         }
